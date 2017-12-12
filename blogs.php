@@ -49,12 +49,12 @@ get_header(); ?>
           <input type="hidden" name="action" value="myfilter">
           <input type="hidden" name="category-num" value="13">
           <button>Apply filter</button>
-				</form>
-			</span>
+        </form>
+      </span>
 
 			<div class="category--list--blog grid">
 
-				<div class="big grid-item sticky">
+        <div class="big grid-item sticky">
 					<?php 
 						// The Query
 						$the_args = array(
