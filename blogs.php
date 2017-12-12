@@ -48,7 +48,7 @@ get_header(); ?>
           </select>
           <input type="hidden" name="action" value="myfilter">
           <input type="hidden" name="category-num" value="13">
-					<button>Apply filter</button>
+          <button>Apply filter</button>
 				</form>
 			</span>
 
