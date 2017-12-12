@@ -19,35 +19,35 @@ get_header(); ?>
           <!-- The first 'foreach' is to get everything in 'News' -->
           <!-- The second one is for getting each subcategory -->
           <select  name="category-type"> 
+            <?php 
+              $categories = get_categories( array( 'child_of' => 13 ) );
+              $this_cat = get_categories( array( 'name' => 'News' )  );
+            ?>
+            <option disabled hidden selected="true" value="false">Blog type</option>
               <?php 
-                $categories = get_categories( array( 'child_of' => 13 ) );
-                $this_cat = get_categories( array( 'name' => 'News' )  );
-              ?>
-              <option disabled hidden selected="true" value="false">Blog type</option>
-                  <?php 
-                      foreach ( $this_cat as $category_blog ) {
-                          printf( '<option value="%1$s">Everything (%2$s)</option>',
-                              esc_attr( $category_blog->cat_ID ),
-                              esc_html( $category_blog->category_count )
-                          );
-                      }
-                      foreach ( $categories as $category_blog ) {
-                          printf( '<option calss="wp_categories" value="%1$s">%2$s (%3$s)</option>',
-                              esc_attr( $category_blog->cat_ID ),
-                              esc_html( $category_blog->cat_name ),
-                              esc_html( $category_blog->category_count )
-                          );
-                      }
-                  ?>
+                foreach ( $this_cat as $category_blog ) {
+                  printf( '<option value="%1$s">Everything (%2$s)</option>',
+                    esc_attr( $category_blog->cat_ID ),
+                    esc_html( $category_blog->category_count )
+                  );
+                }
+                foreach ( $categories as $category_blog ) {
+                  printf( '<option calss="wp_categories" value="%1$s">%2$s (%3$s)</option>',
+                    esc_attr( $category_blog->cat_ID ),
+                    esc_html( $category_blog->cat_name ),
+                    esc_html( $category_blog->category_count )
+                  );
+                }
+                ?>
           </select>
           <select  name="category-order">
-              <option disabled selected="true" value="false">Order by</option>
-              <option value="DESC" name="order">Newer First</option>
-              <option value="ASC" name="order">Older First</option>
-              <option value="rand" name="order">Random</option>
+            <option disabled selected="true" value="false">Order by</option>
+            <option value="DESC" name="order">Newer First</option>
+            <option value="ASC" name="order">Older First</option>
+            <option value="rand" name="order">Random</option>
           </select>
-					<input type="hidden" name="action" value="myfilter">
-					<input type="hidden" name="category-num" value="13">
+          <input type="hidden" name="action" value="myfilter">
+          <input type="hidden" name="category-num" value="13">
 					<button>Apply filter</button>
 				</form>
 			</span>
